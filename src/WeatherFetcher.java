@@ -119,7 +119,7 @@ public class WeatherFetcher {
         JSONObject main = (JSONObject) json.get("main");
         double temperature = ((Number) main.get("temp")).doubleValue();
         double feelsLike = ((Number) main.get("feels_like")).doubleValue();
-        long humidity = (Long) main.get("humidity");
+        int humidity = ((Number) main.get("humidity")).intValue();
         
         // Extract weather description
         JSONArray weatherArray = (JSONArray) json.get("weather");
@@ -138,7 +138,7 @@ public class WeatherFetcher {
             feelsLike,
             description,
             mainCondition,
-            humidity.intValue(),
+            humidity,
             windSpeed
         );
     }

@@ -1,22 +1,26 @@
-Weather Dashboard
+# Weather Dashboard
+
 A simple Java application that fetches and displays real-time weather data using the OpenWeatherMap API.
-Features
 
-🌤️ Fetch current weather for any city worldwide
-📊 View weather for multiple cities at once
-🔍 Automatic comparison (warmest, coldest, average temperature)
-💻 Clean, simple text-based interface
-⚡ Lightweight - only ~950 lines of code
+## Features
 
-Prerequisites
+- 🌤️ Fetch current weather for any city worldwide
+- 📊 View weather for multiple cities at once
+- 🔍 Automatic comparison (warmest, coldest, average temperature)
+- 💻 Clean, simple text-based interface
+- ⚡ Lightweight - only ~950 lines of code
 
-Java JDK 8 or higher
-Internet connection
-OpenWeatherMap API key (free)
+## Prerequisites
 
-Getting Started
-1. Clone the Repository
-bashgit clone https://github.com/yourusername/weather-dashboard.git
+- Java JDK 8 or higher
+- Internet connection
+- OpenWeatherMap API key (free)
+
+## Getting Started
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/weather-dashboard.git
 cd weather-dashboard
 ```
 
@@ -25,31 +29,43 @@ cd weather-dashboard
 Download `json-simple-1.1.1.jar` from:
 ```
 https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/json-simple/json-simple-1.1.1.jar
-Place it in the lib/ folder.
-3. Get Your Free API Key
+```
 
-Sign up at OpenWeatherMap
-Copy your API key from your account
-Wait 10-15 minutes for activation
+Place it in the `lib/` folder.
 
-4. Add Your API Key
-Open config.properties and replace YOUR_API_KEY_HERE:
-propertiesapi.key=your_actual_api_key_here
+### 3. Get Your Free API Key
+
+1. Sign up at [OpenWeatherMap](https://openweathermap.org/api)
+2. Copy your API key from your account
+3. Wait 10-15 minutes for activation
+
+### 4. Add Your API Key
+
+Open `config.properties` and replace `YOUR_API_KEY_HERE`:
+```properties
+api.key=your_actual_api_key_here
 api.url=https://api.openweathermap.org/data/2.5/weather
-5. Run the Application
-Using VS Code:
+```
 
-Open the project folder
-Install "Extension Pack for Java" extension
-Open src/Main.java
-Click "Run"
+### 5. Run the Application
 
-Using Command Line:
+**Using VS Code:**
+1. Open the project folder
+2. Install "Extension Pack for Java" extension
+3. Open `src/Main.java`
+4. Click "Run"
+
+**Using Command Line:**
+
 Windows:
-bashjavac -cp ".;lib/json-simple-1.1.1.jar" -d bin src/*.java
+```bash
+javac -cp ".;lib/json-simple-1.1.1.jar" -d bin src/*.java
 java -cp ".;lib/json-simple-1.1.1.jar;bin" Main
+```
+
 Mac/Linux:
-bashjavac -cp ".:lib/json-simple-1.1.1.jar" -d bin src/*.java
+```bash
+javac -cp ".:lib/json-simple-1.1.1.jar" -d bin src/*.java
 java -cp ".:lib/json-simple-1.1.1.jar:bin" Main
 ```
 
@@ -67,5 +83,12 @@ weather-dashboard/
 ├── src/                       # Java source files
 ├── lib/                       # json-simple library
 └── config.properties          # API configuration
-License
+```
+
+## License
+
 Open source - available for educational purposes.
+
+---
+
+Weather data provided by [OpenWeatherMap](https://openweathermap.org/)

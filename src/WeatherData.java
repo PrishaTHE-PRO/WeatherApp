@@ -5,12 +5,12 @@ public class WeatherData {
     // Instance variables - all weather properties
     private String cityName;
     private String country;
-    private double temperature;      // in Fahrenheit
-    private double feelsLike;        // in Fahrenheit
+    private double temperature; //Fahrenheit
+    private double feelsLike;  // Fahrenheit
     private String description;      
     private String mainCondition;    
-    private int humidity;            // percentage
-    private double windSpeed;        // mph
+    private int humidity;// percentage
+    private double windSpeed;// mph
     private long timestamp;          
     
     public WeatherData(String cityName, String country, double temperature, 

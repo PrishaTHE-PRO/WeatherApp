@@ -5,19 +5,16 @@ import org.json.simple.*;
 import org.json.simple.parser.*;
 
 /**
- * Handles fetching weather data from the OpenWeatherMap API.
+ * Handles fetching weather data from the OpenWeatherMap API
  */
 public class WeatherFetcher {
     private String apiKey;      
     private String apiUrl;      
-    
+
     public WeatherFetcher() throws IOException {
         loadConfiguration();
     }
-    
-    /**
-     * Loads API key and URL from config.properties file
-     */
+
     private void loadConfiguration() throws IOException {
         Properties properties = new Properties();
         
@@ -40,13 +37,14 @@ public class WeatherFetcher {
         apiKey = properties.getProperty("api.key");
         apiUrl = properties.getProperty("api.url");
         
+        // Validate that we got the required properties
         if (apiKey == null || apiKey.equals("YOUR_API_KEY_HERE")) {
             throw new IOException("Please set your API key in config.properties!");
         }
     }
-
+    
     /**
-     * Fetch weather data for a given city
+     * Fetches weather data for a given city
      */
     public WeatherData fetchWeather(String cityName) throws Exception {
         String urlString = buildUrl(cityName);
@@ -55,7 +53,7 @@ public class WeatherFetcher {
         
         return parseWeatherData(jsonResponse);
     }
-
+    
     /**
      * Builds the complete API URL with query parameters
      */
@@ -67,7 +65,7 @@ public class WeatherFetcher {
         return String.format("%s?q=%s&appid=%s&units=imperial", 
                            apiUrl, encodedCity, apiKey);
     }
-
+    
     /**
      * Makes HTTP GET request to the API
      */
@@ -103,7 +101,7 @@ public class WeatherFetcher {
             connection.disconnect();
         }
     }
-
+    
     /**
      * Parses JSON response into WeatherData object
      */
@@ -112,20 +110,24 @@ public class WeatherFetcher {
         JSONParser parser = new JSONParser();
         JSONObject json = (JSONObject) parser.parse(jsonString);
         
+
         String cityName = (String) json.get("name");
         JSONObject sys = (JSONObject) json.get("sys");
         String country = (String) sys.get("country");
         
+        // Extract temperature data
         JSONObject main = (JSONObject) json.get("main");
         double temperature = ((Number) main.get("temp")).doubleValue();
         double feelsLike = ((Number) main.get("feels_like")).doubleValue();
         long humidity = (Long) main.get("humidity");
         
+        // Extract weather description
         JSONArray weatherArray = (JSONArray) json.get("weather");
         JSONObject weather = (JSONObject) weatherArray.get(0);
         String mainCondition = (String) weather.get("main");
         String description = (String) weather.get("description");
         
+        // Extract wind speed
         JSONObject wind = (JSONObject) json.get("wind");
         double windSpeed = ((Number) wind.get("speed")).doubleValue();
         
@@ -140,28 +142,4 @@ public class WeatherFetcher {
             windSpeed
         );
     }
-
-    /**
-     * Tests if API connection is working
-     */
-    public boolean testConnection() {
-        try {
-            fetchWeather("London");
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /**
-     * Gets the current API key
-     */
-    public String getApiKeyPreview() {
-        if (apiKey == null || apiKey.length() < 8) {
-            return "Not set";
-        }
-        return apiKey.substring(0, 4) + "..." + apiKey.substring(apiKey.length() - 4);
-    }
-
-
 }

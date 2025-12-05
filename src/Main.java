@@ -8,7 +8,6 @@ public class Main {
         // Print welcome message to console
         System.out.println("=".repeat(60));
         System.out.println("Weather Dashboard Application");
-        System.out.println("CS300 Object-Oriented Programming Project");
         System.out.println("=".repeat(60));
         System.out.println("\nInitializing application...");
         

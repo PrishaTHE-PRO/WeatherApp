@@ -11,12 +11,6 @@ public class Main {
         System.out.println("=".repeat(60));
         System.out.println("\nInitializing application...");
         
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            System.out.println("✓ UI Look and Feel set successfully");
-        } catch (Exception e) {
-            System.out.println("⚠ Could not set system look and feel, using default");
-        }
         
         // Create and show GUI on Event Dispatch Thread
         SwingUtilities.invokeLater(new Runnable() {

@@ -12,9 +12,12 @@ public class WeatherFetcher {
     private String apiUrl;      
 
     public WeatherFetcher() throws IOException {
-        loadConfiguration();
+        loadConfiguration(); //loads API key
     }
 
+    /**
+     * Loads API credentials from config.properties
+     */
     private void loadConfiguration() throws IOException {
         Properties properties = new Properties();
         

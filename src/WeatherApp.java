@@ -6,7 +6,6 @@ import java.awt.event.*;
 /**
  * WeatherApp.java
  * Enhanced GUI application for weather data visualization with centered layout.
- * CS300 Concept: Event-driven programming, GUI design with Swing
  */
 public class WeatherApp extends JFrame {
     // Instance variables

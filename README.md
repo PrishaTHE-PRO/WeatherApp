@@ -82,13 +82,9 @@ weather-dashboard/
 ├── lib/                       # json-simple library
 └── config.properties          # API configuration
 ```
-
-## License
-
-Open source - available for educational purposes.
-
 ---
 
 Weather data provided by [OpenWeatherMap](https://openweathermap.org/)
+
 
 

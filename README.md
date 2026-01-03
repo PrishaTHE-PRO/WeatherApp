@@ -7,8 +7,6 @@ A simple Java application that fetches and displays real-time weather data using
 - Fetch current weather for any city worldwide
 - View weather for multiple cities at once
 - Automatic comparison (warmest, coldest, average temperature)
-- Clean, simple text-based interface
-- Lightweight - only ~950 lines of code
 
 ## Prerequisites
 
@@ -92,4 +90,5 @@ Open source - available for educational purposes.
 ---
 
 Weather data provided by [OpenWeatherMap](https://openweathermap.org/)
+
 
